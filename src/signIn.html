@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wallE | Sign In</title>
+</head>
+<body>
+    <div class="navbar">
+        Navbar
+    </div>
+    <div class="body">
+        <div class="container">
+            <form  onsubmit="submitForm(event)">
+                <label for="firstname">First Name</label>
+                <input type="text" class="firstname" minlength="3" name="firstname">
+                <label for="lastname">Last Name   <span>(Optional)</span>      </label>
+                <input type="text" minlength="3" class="lastname" name="lastname">
+                <label for="email">Email</label>
+                <input type="email" class="email">
+                <label for="gender">Gender</label>
+                <select name="gender" id="gender" class="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+                <label for="dob" >D.O.B</label>
+                <input type="date" name="dob" class="dob">
+                <div class="buttons">
+                    <input type="submit" value="Submit">
+                    <input type="reset" value="Reset">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+            
+        function submitForm(){
+            event.preventDefault();
+            console.log("dhsab");
+           const firstname=document.querySelector('.firstname').value;
+           const lastname=document.querySelector('.lastname').value;
+           const email=document.querySelector('.email').value;
+           const dob=document.querySelector('.dob').value;
+           const gender=document.querySelector('.gender').value;
+
+           console.log(firstname,lastname,gender,dob,email);
+        }
+    </script>
+</body>
+</html>
