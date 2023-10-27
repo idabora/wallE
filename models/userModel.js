@@ -10,6 +10,12 @@ const userSchema= new mongooose.Schema({
         type:String,
         trim:true        
     },
+    username:{
+        type:String,
+        trim:true,
+        unique:true,
+        required:[true,'Username is required']
+    },
     DOB:{
         type:Date,  //yyyy-mm-dd
         required:true,  

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/signIn.css">
     <title>wallE | Sign In</title>
 </head>
 <body>
@@ -11,11 +12,17 @@
     </div>
     <div class="body">
         <div class="container">
-            <form  onsubmit="submitForm(event)">
+            <form action="/signIn" method="POST"  onsubmit="submitForm(event)" class="form">
                 <label for="firstname">First Name</label>
                 <input type="text" class="firstname" minlength="3" name="firstname">
                 <label for="lastname">Last Name   <span>(Optional)</span>      </label>
                 <input type="text" minlength="3" class="lastname" name="lastname">
+
+                <label for="username">Username(min length should be 5 and contains 2 integers)</label>
+                <input type="text" class="username">
+                <div class="suggesteUsername">
+
+                </div>
                 <label for="email">Email</label>
                 <input type="email" class="email">
                 <label for="gender">Gender</label>
@@ -26,6 +33,11 @@
                 </select>
                 <label for="dob" >D.O.B</label>
                 <input type="date" name="dob" class="dob">
+                <div class="captchaDiv">
+                    <!-- <label for="captcha">Ca</label> -->
+                    <input type="text" class="captchaText" name="captcha">
+                    <span class="captchaGen">sz6@D</span>
+                </div>
                 <div class="buttons">
                     <input type="submit" value="Submit">
                     <input type="reset" value="Reset">
@@ -36,6 +48,14 @@
 
     <script>
             
+        
+        const form=document.querySelector('.form');
+
+        form.addEventListener('load',()=>{
+            console.log("LOADED")
+        })
+
+
         function submitForm(){
             event.preventDefault();
             console.log("dhsab");
