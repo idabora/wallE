@@ -1,19 +1,23 @@
-const express= require('express');
+const express=require('express');
 const app= express();
 const path=require('path');
 
 const PORT= process.env.PORT || 3030;
 
+const staticPath= path.join(__dirname,'/src')
+
+
+// app.set('view engine','hbs');
+// app.set('views',staticPath)
+
+app.use(express.static(staticPath));
+
 app.get('/',(req,res)=>{
     console.log('HOME');
-    res.sendFile(path.join(__dirname,'/src/screen/signIn.html'));
+    res.sendFile(path.join(staticPath,'/screen','signIn.html'));
 })
 
-app.post('/',(req,res)=>{
-    console.log("Entered");
-    res.send("dkjffjk")
-})
-
+app.use('/',require('./routes/homeRoutes'))
 
 
 app.listen(PORT,()=>{
