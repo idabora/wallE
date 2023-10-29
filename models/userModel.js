@@ -1,6 +1,6 @@
-const mongooose = require('mongoose');
+const mongoose = require('mongoose');
 
-const userSchema= new mongooose.Schema({
+const userSchema= new mongoose.Schema({
     firstName:{
         type:String,
         required:[true, 'First name is required'],
@@ -22,13 +22,15 @@ const userSchema= new mongooose.Schema({
         trim:true
     },
     email:{
-        type:email,
+        type:String,
         required:[true,'Email is required'],
+        unique:true,
         trim:true
     },
     gender:{
         type:String,
-        enum:['Male','Female','Other']
+        enum:['Male','Female','Other','null'],
+        default:'null'
     },
     token:{
         type:String
@@ -37,4 +39,7 @@ const userSchema= new mongooose.Schema({
 {
     timestamps:true
 }
-)
+);
+
+const User = new mongoose.model('User',userSchema);
+module.exports=User;

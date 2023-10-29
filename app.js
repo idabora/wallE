@@ -12,12 +12,18 @@ const staticPath= path.join(__dirname,'/src')
 // app.set('views',staticPath)
 
 app.use(express.static(staticPath));
-app.use('/home',require('./routes/homeRoutes'))
-
 app.get('/',middleware.checklogin,(req,res)=>{
     console.log('HOME');
-    res.sendFile(path.join(staticPath,'/screen','signIn.html'));
+    // res.sendFile(path.join(staticPath,'/screen','signIn.html'));
 })
+
+// app.get('/signup',(req,res)=>{
+//     console.log("FHGVJKH")
+//     res.send("OKK")
+// })
+
+app.use('/signup',require('./routes/homeRoutes'))
+
 
 
 
