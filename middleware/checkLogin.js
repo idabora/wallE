@@ -1,3 +1,5 @@
+const { post } = require("../routes/homeRoutes");
+
 exports.checklogin=(req,res,next)=>{
     // if(req.session && req.session.user){
     //     // console.log('popsss');
@@ -5,6 +7,7 @@ exports.checklogin=(req,res,next)=>{
     // }
     // else{
         // req.flash('msg',"Logout Successfully");
-        return res.redirect('/home');
+        return res.redirect('/signup');
+        // next();
     // }
 }

@@ -12,19 +12,21 @@
     </div>
     <div class="body">
         <div class="container">
-            <form action="/signup" method="get"  onsubmit="submitForm(event)" class="form">
+            <form action="/signup" method="POST"  class="form">
                 <label for="firstname">First Name</label>
                 <input type="text" class="firstname" minlength="3" name="firstname">
                 <label for="lastname">Last Name   <span>(Optional)</span>      </label>
                 <input type="text" minlength="3" class="lastname" name="lastname">
 
                 <label for="username">Username(min length should be 5 and contains 2 integers)</label>
-                <input type="text" class="username">
+                <input type="text" class="username" name="username">
                 <div class="suggesteUsername">
 
                 </div>
                 <label for="email">Email</label>
-                <input type="email" class="email">
+                <input type="email" class="email" name="email">
+                <label for="phone">Mobile</label>
+                <input type="tel" class="phone" name="phone">
                 <label for="gender">Gender</label>
                 <select name="gender" id="gender" class="gender">
                     <option value="Male">Male</option>
