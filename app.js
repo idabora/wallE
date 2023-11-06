@@ -1,7 +1,9 @@
 const express=require('express');
 const app= express();
+require('./connection')
 const path=require('path');
-const middleware=require('./middleware/checkLogin')
+const middleware=require('./middleware/checkLogin');
+// const bodyParser = require('body-parser');
 
 const PORT= process.env.PORT || 3030;
 
@@ -10,6 +12,8 @@ const staticPath= path.join(__dirname,'/src')
 
 // app.set('view engine','hbs');
 // app.set('views',staticPath)
+app.use(express.json());
+app.use(express.urlencoded())
 
 app.use(express.static(staticPath));
 app.get('/',middleware.checklogin,(req,res)=>{
